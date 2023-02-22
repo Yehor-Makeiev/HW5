@@ -26,19 +26,15 @@ def find_articles(key, letter_case=False):
     result = []
     if letter_case == False:
         key = str(key).lower()
+
         for my_dict in articles_dict:
-
-            for k, v in my_dict.items():
-                if str(v).lower().find(key) != -1:
-                    result += my_dict.values()
-        return print(result)
-
+            if str(my_dict).lower().find(key) != -1:
+                result.append(my_dict)
     else:
         for my_dict in articles_dict:
-            for k, v in my_dict.items():
-                if str(my_dict.values()).find(key) != -1:
-                    result += my_dict.values()
-            return print(result)
+            if str(my_dict).find(key) != -1:
+                result.append(my_dict)
+    return print(result)
 
 
 if __name__ == "__main__":
